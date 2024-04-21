@@ -13,6 +13,24 @@
       crossorigin="anonymous"
     />
     <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      .overlay-section {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 35%;
+        border-radius: 21px 21px 0 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      a {
+        text-decoration: none;
+      }
       .containerme {
         height: 100%;
         display: flex;
@@ -22,56 +40,60 @@
         bottom: 180px;
         margin-bottom: -180px;
       }
-      .nav-link {
-        color: rgba(0, 0, 0, 0.58);
-        text-align: center;
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 120%; /* 24px */
-        text-transform: capitalize;
-      }
+      /* Revised the positioning and size for buttons */
       .greenbutton {
         width: 152px;
         height: 49px;
         flex-shrink: 0;
         border-radius: 20px;
         background: #4e8071;
+        border: none;
+        flex-shrink: 0;
+        border-radius: 20px;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
       }
+
       .greenbutton-text {
         color: #f6f1eb;
         text-align: center;
         font-family: Inter;
-        font-size: 20px;
+        font-size: 1rem;
         font-style: normal;
         font-weight: 400;
-        line-height: 120%; /* 24px */
+        line-height: 120%;
         text-transform: capitalize;
       }
       .card img {
-        width: 100%;
-        height: 200px;
+        /* width: 331px; */
+        height: 323px;
+        flex-shrink: 0;
         object-fit: cover;
+        border-radius: 40px 40px 0 0;
+      }
+      .card {
+        border-radius: 40px 40px 20px 20px;
+        background: #fff;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
       footer {
-        color: rgba(255, 255, 255, 0.58);
+        color: rgba(255, 255, 255, 0.7);
+        background: #013624; /* Assuming this is the footer background color */
+        height: auto;
         width: 100%;
-        margin-top: 50px;
         padding: 20px;
         text-align: center;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         font-family: Inter;
+        background: #013624;
         font-size: 20px;
         font-style: normal;
         font-weight: 400;
         line-height: 120%; /* 24px */
-        text-transform: capitalize;
+        box-sizing: border-box; /* This ensures padding is included in the width */
       }
       .golden-line {
-        background-color: #c0a96b; /* Gold color */
-        height: 2px; /* Define the thickness of the line */
+        background-color: #c28e2c; /* Gold color */
+        height: 3px; /* Define the thickness of the line */
         width: 80%;
         text-align: center;
         border-bottom: 1px solid #000;
@@ -83,8 +105,8 @@
         padding: 0 10px;
       }
       .full-golden-line {
-        background-color: #c0a96b; /* Gold color */
-        height: 3px; /* Define the thickness of the line */
+        background-color: #c28e2c; /* Gold color */
+        height: 5px; /* Define the thickness of the line */
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #000;
@@ -95,108 +117,204 @@
         background: #013624;
         padding: 0 10px;
       }
+      .full-height-section {
+        height: 85vh; /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Hide overflow if the image is too large */
+      }
+
+      .full-height-section img {
+        width: 100%; /* Full width of the container */
+        height: 100%; /* Full height of the container */
+        object-fit: cover; /* Cover the container, may result in cropping */
+      }
+      /* Override hover color for .btn-primary */
+      .btn-primary:hover {
+        background-color: #002e20; /* Replace with your desired color */
+        border-color: #002e20; /* Replace with your desired border color */
+        color: #002e20; /* Replace with your desired text color */
+      }
+      button.btn.btn-primary:active {
+        background-color: #002e20; /* Green */
+        border-color: #002e20;
+      }
+
+      .nav-link {
+        color: rgba(0, 0, 0, 0.7);
+        text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 24px */
+        text-transform: capitalize;
+      }
+
+      .buybutton {
+        border-radius: 10px;
+        background: rgba(222, 222, 222, 0.4);
+        color: rgba(0, 0, 0, 0.7);
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 24px */
+        text-transform: capitalize;
+        width: 150px;
+      }
+      .jewelers span {
+        margin-bottom: 5px;
+      }
+      .branches {
+        position: relative;
+        left: 39px;
+      }
+      @media (max-width: 576px) {
+        .greenbutton {
+          width: 120px; /* Smaller width for mobile devices */
+          margin-bottom: 20px;
+          margin-top: 20px;
+          /* height: 32px; Smaller height for mobile devices */
+        }
+        .jewelers {
+          position: relative;
+          right: 14px;
+        }
+        .branches {
+          position: relative;
+          left: 20px;
+        }
+        .footerLogo {
+          position: relative;
+          bottom: 30px;
+        }
+        .branches span {
+          margin-bottom: 2px;
+        }
+      }
     </style>
   </head>
   <body>
-    <nav class="" data-bs-theme="dark">
-      <header
-        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3"
-      >
-        <div class="col-md-3 mb-2 mb-md-0">
-          <a
-            href="/"
-            class="d-inline-flex link-body-emphasis text-decoration-none"
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <div class="navbar-brand mx-auto">
+          <div
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-0 collapse navbar-collapse col-md-2 mb-1 mb-md-0"
+            style="margin-right: 60px"
           >
-            <img
-              src="img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
-              width="150"
-            />
-          </a>
+            <a
+              href="/"
+              class="d-inline-flex link-body-emphasis text-decoration-none"
+            >
+              <img
+                src="img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
+                width="175"
+              />
+            </a>
+          </div>
         </div>
-
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li>
-            <a href="#" class="nav-link px-2 link-secondary">الصفحة الرئيسية</a>
-          </li>
-          <li><a href="#" class="nav-link px-2">التصنيفات</a></li>
-          <li><a href="#" class="nav-link px-2">من نحن</a></li>
-          <li><a href="#" class="nav-link px-2">زورونا</a></li>
-        </ul>
-
-        <div class="col-md-3 text-end"></div>
-      </header>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#basic-navbar-nav"
+          aria-controls="basic-navbar-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="basic-navbar-nav">
+          <ul
+            class="nav navbar-nav col-12 col-md-auto mb-1 justify-content-center mb-md-0"
+          >
+            <li class="nav-item">
+              <a href="" class="link-secondary nav-link px-5"
+                >الصفحة الرئيسية</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/categories" class="nav-link px-5">التصنيفات</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about-us" class="nav-link px-5">من نحن</a>
+            </li>
+            <li class="nav-item">
+              <a href="/visit-us/" class="nav-link px-5">زورونا</a>
+            </li>
+          </ul>
+          <div class="col-md-2 text-end"></div>
+        </div>
+      </div>
     </nav>
-    <section>
+    <section
+      class="full-height-section position-relative"
+      style="margin-bottom: 200px"
+    >
       <img
         src="img/Screenshot 2024-03-17 235544.png"
-        width="100%"
-        style="overflow: hidden"
+        alt="Descriptive Text for Accessibility"
       />
-      <div class="containerme">
-        <div
-          class="shadow-sm mx-auto"
-          style="
-            width: 35%;
-            height: 180px;
-            border-radius: 21px 21px 0 0;
-            background-color: rgba(0, 0, 0, 0.5);
-          "
-        >
-          <div class="d-flex justify-content-center align-items-center h-100">
-            <div class="container text-center">
-              <div class="row">
-                <div class="col">
-                  <img
-                    src="img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
-                    width="200"
-                  />
-                </div>
+
+      <div class="overlay-section">
+        <div class="container pb-5">
+          <div class="row">
+            <div class="col">
+              <!-- Make sure to include alt attribute for accessibility -->
+              <div style="width: 50%; max-width: 200px; margin: auto">
+                <img
+                  src="img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
+                  alt="Your Image Description"
+                  class="img-fluid"
+                />
               </div>
-              <div class="row">
-                <div class="col">
-                  <button class="greenbutton">
-                    <span class="greenbutton-text">تواصل معانا</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col" style="padding: 0">
+              <center>
+                <a href="/about-us">
+                  <button class="greenbutton btn btn-primary">
+                    <span class="greenbutton-text">تواصل معنا</span>
                   </button>
-                </div>
-                <div class="col">
-                  <button class="greenbutton">
+                </a>
+              </center>
+            </div>
+            <div class="col" style="padding: 0">
+              <center>
+                <a href="/our-brunches">
+                  <button class="greenbutton btn btn-primary" id="greenbutton">
                     <span class="greenbutton-text">فروعنا</span>
                   </button>
-                </div>
-              </div>
+                </a>
+              </center>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <section>
       <div class="album py-5 bg-body-tertiary">
         <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+          <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3"
+            style="margin-bottom: 70px"
+          >
             <div class="col">
-              <div class="card shadow-sm">
+              <div class="card shadow-sm products">
                 <img src="img/W.jpg" alt="" />
                 <div class="card-body">
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -208,23 +326,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -236,23 +340,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -264,23 +354,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -292,23 +368,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -320,23 +382,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -348,23 +396,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -376,23 +410,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -400,33 +420,40 @@
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-center align-items-center h-100">
-        <button
-          style="
-            color: rgba(0, 0, 0, 0.58);
-            text-align: center;
-            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            font-family: Inter;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 120%; /* 24px */
-            text-transform: capitalize;
-            border-radius: 20px;
-            border: none;
-            background: rgba(212, 212, 212, 0.5);
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            width: 200px;
-            height: 69px;
-            flex-shrink: 0;
-          "
-        >
-          عرض المزيد
-        </button>
+      <div
+        class="d-flex justify-content-center align-items-center h-100"
+        style="margin-bottom: 150px"
+      >
+        <a href="/categories">
+          <button
+            style="
+              color: rgba(0, 0, 0, 0.7);
+              text-align: center;
+              text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              font-family: Inter;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 120%; /* 24px */
+              text-transform: capitalize;
+              border-radius: 20px;
+              border: none;
+              background: rgba(212, 212, 212, 0.5);
+              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+              width: 170px;
+              height: 50px;
+              flex-shrink: 0;
+              position: relative;
+              bottom: 30px;
+            "
+          >
+            عرض المزيد
+          </button>
+        </a>
       </div>
     </section>
     <section>
-      <div class="album py-5 bg-body-tertiary">
+      <div class="album bg-body-tertiary" style="margin: 0 0; padding: 100px 0">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
             <div class="col mx-auto">
@@ -436,23 +463,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -464,23 +477,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -492,23 +491,9 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <div
-                      style="
-                        border-radius: 5px;
-                        background: rgba(222, 222, 222, 0.4);
-                        color: rgba(0, 0, 0, 0.58);
-                        text-align: center;
-                        font-family: Inter;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 120%; /* 24px */
-                        text-transform: capitalize;
-                        width: 200px;
-                      "
-                    >
-                      احصل عليها
-                    </div>
+                    <a href="/visit-us">
+                      <div class="buybutton">احصل عليها</div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -516,78 +501,100 @@
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-center align-items-center h-100">
-        <button
-          style="
-            color: rgba(0, 0, 0, 0.58);
-            text-align: center;
-            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            font-family: Inter;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 120%; /* 24px */
-            text-transform: capitalize;
-            border-radius: 20px;
-            border: none;
-            background: rgba(212, 212, 212, 0.5);
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            width: 200px;
-            height: 69px;
-            flex-shrink: 0;
-          "
-        >
-          عرض المزيد
-        </button>
+      <div
+        class="d-flex justify-content-center align-items-center h-100"
+        style="margin-bottom: 150px"
+      >
+        <a href="/عربي">
+          <button
+            style="
+              color: rgba(0, 0, 0, 0.7);
+              text-align: center;
+              text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              font-family: Inter;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 120%; /* 24px */
+              text-transform: capitalize;
+              border-radius: 20px;
+              border: none;
+              background: rgba(212, 212, 212, 0.5);
+              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+              width: 170px;
+              height: 50px;
+              flex-shrink: 0;
+              position: relative;
+              bottom: 30px;
+            "
+          >
+            عرض المزيد
+          </button>
+        </a>
       </div>
     </section>
-    <footer
-      style="background: #013624; width: 100%; height: 100%; flex-shrink: 0"
-    >
-      <div class="row">
-        <div class="col">
-          <img
-            src="img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
-            width="150"
-          />
+    <footer class="footer">
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col">
+            <img
+              class="footerLogo"
+              src="img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
+              width="300 "
+            />
+          </div>
+          <div class="col">
+            <div class="row">
+              <h4 class="golden-line"><span>فروعنا</span></h4>
+            </div>
+            <div class="branches">
+              <div class="row">
+                <span>Al-nofleen</span>
+              </div>
+              <div class="row">
+                <span>Al-jraba</span>
+              </div>
+              <div class="row">
+                <span>Hay Al-andaluse</span>
+              </div>
+              <div class="row">
+                <span>Al-qadesiya</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+              <h4 class="golden-line" style="position: relative; right: 35px">
+                <span>المجوهرات</span>
+              </h4>
+            </div>
+            <div class="jewelers">
+              <div class="row">
+                <span>ذهب ابيض</span>
+              </div>
+              <div class="row">
+                <span>قراط 21</span>
+              </div>
+              <div class="row">
+                <span>عربي</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col">
+        <div class="mt-5">
           <div class="row">
-            <h4 class="golden-line"><span>فروعنا</span></h4>
+            <h4 class="full-golden-line"><span>تواصل معانا</span></h4>
           </div>
-          <div class="row">
-            <span>ALJRABA-TRIPOLI</span>
-          </div>
-          <div class="row">
-            <span>ALNOFLEEN-TRIPOLI</span>
-          </div>
-          <div class="row">
-            <span>ALNOFLEEN-TRIPOLI</span>
-          </div>
-        </div>
-        <div class="col">
-          <div class="row">
-            <h4 class="golden-line"><span>المجهورات</span></h4>
-          </div>
-          <div class="row">
-            <span>ذهب ابيض</span>
-          </div>
-          <div class="row">
-            <span>قراط 21</span>
-          </div>
-          <div class="row">
-            <span>عربي</span>
+          <div class="container contactus">
+            <div class="row">
+              <div class="col-6 col-md-3">+218-9xxxxxxx</div>
+              <div class="col-6 col-md-3">فيسبوك</div>
+              <div class="col-6 col-md-3 d-md-none">انستقرام</div>
+              <div class="col-6 col-md-3">xxxx@gmail.com</div>
+              <div class="col-6 col-md-3 d-none d-md-block">انستقرام</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <h4 class="full-golden-line"><span>تواصل معانا</span></h4>
-      </div>
-      <div class="row">
-        <div class="col">+218-9xxxxxxx</div>
-        <div class="col">فيسبوك</div>
-        <div class="col">انستقرام</div>
-        <div class="col">xxxxxxxxx@gmail.com</div>
       </div>
     </footer>
   </body>

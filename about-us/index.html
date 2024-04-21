@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مخرم للمجوهرات</title>
+    <!-- <link rel="stylesheet" href="style.css"  /> -->
+    <link rel="stylesheet" href="" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Inter", sans-serif; /* Inter font or a fallback */
+      }
+      a {
+        text-decoration: none;
+      }
+      footer {
+        color: rgba(255, 255, 255, 0.7);
+        background: #013624; /* Assuming this is the footer background color */
+        height: auto;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-family: Inter;
+        background: #013624;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 24px */
+        box-sizing: border-box; /* This ensures padding is included in the width */
+      }
+      .golden-line {
+        background-color: #c28e2c; /* Gold color */
+        height: 3px; /* Define the thickness of the line */
+        width: 80%;
+        text-align: center;
+        border-bottom: 1px solid #000;
+        line-height: 0.1em;
+        margin: 10px 0 20px;
+      }
+      .golden-line span {
+        background: #013624;
+        padding: 0 10px;
+      }
+      .full-golden-line {
+        background-color: #c28e2c; /* Gold color */
+        height: 5px; /* Define the thickness of the line */
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #000;
+        line-height: 0.1em;
+        margin: 10px 0 20px;
+      }
+      .full-golden-line span {
+        background: #013624;
+        padding: 0 10px;
+      }
+      .full-height-section {
+        height: 100vh; /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Hide overflow if the image is too large */
+      }
+
+      .full-height-section img {
+        width: 100%; /* Full width of the container */
+        height: 100%; /* Full height of the container */
+        object-fit: cover; /* Cover the container, may result in cropping */
+      }
+      /* Override hover color for .btn-primary */
+      .btn-primary:hover {
+        background-color: #002e20; /* Replace with your desired color */
+        border-color: #002e20; /* Replace with your desired border color */
+        color: #002e20; /* Replace with your desired text color */
+      }
+      button.btn.btn-primary:active {
+        background-color: #002e20; /* Green */
+        border-color: #002e20;
+      }
+
+      .nav-link {
+        color: #d9d9d9;
+        text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 24px */
+        text-transform: capitalize;
+      }
+
+      .jewelers span {
+        margin-bottom: 5px;
+      }
+      .branches {
+        position: relative;
+        left: 39px;
+      }
+      @media (max-width: 576px) {
+        .jewelers {
+          position: relative;
+          right: 14px;
+        }
+        .branches {
+          position: relative;
+          left: 20px;
+        }
+        .footerLogo {
+          position: relative;
+          bottom: 30px;
+        }
+        .branches span {
+          margin-bottom: 2px;
+        }
+      }
+      .navbar div {
+        background-color: transparent !important; /* Overrides other styles due to specificity */
+      }
+      /* Ensures the navbar itself has a transparent background */
+      #nav.navbar,
+      #nav .navbar-collapse,
+      #nav .navbar-nav {
+        background: transparent !important; /* Overrides any background settings */
+      }
+      .link-secondary,
+      .nav-link {
+        color: #d9d9d9; /* White text color */
+      }
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+      }
+
+      .custom-card {
+        background: #f8f9fa; /* Light grey background */
+        border-radius: 25px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        margin: auto; /* Center the card */
+        max-width: 700px; /* Maximum width */
+        padding: 3rem; /* Padding around the text */
+        text-align: center; /* Center text */
+        font-size: 25px;
+        font-weight: 600; /* Bold font weight */
+        line-height: 1.2; /* Adjusted line height */
+        color: rgba(0, 0, 0, 0.8); /* Text color */
+        position: relative; /* Needed for positioning */
+        top: 50%; /* Push down to the middle of the viewport */
+        transform: translateY(-50%); /* Center vertically */
+        box-sizing: border-box; /* Include padding in the element's total width and height */
+      }
+      @media (max-width: 576px) {
+        .custom-card {
+          padding: 1.5rem; /* Smaller padding on mobile */
+        }
+        .album {
+          margin: 0rem; /* Smaller margin on mobile */
+          padding: 0rem;
+        }
+      }
+      .custom-card-2 {
+        margin-top: 100px;
+        color: #013624;
+        text-align: center;
+        font-family: Inter;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%; /* 36px */
+        text-transform: capitalize;
+      }
+      .square-container {
+        position: relative;
+        width: 100%;
+        padding-top: 100%; /* 1:1 Aspect Ratio */
+        overflow: hidden;
+      }
+
+      .square-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      .square-content img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* This will cover the whole area of the square */
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: 100vh; background-image: url('rectangle-710.png')">
+      <nav id="nav" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <div class="navbar-brand mx-auto">
+            <div
+              class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-0 collapse navbar-collapse col-md-2 mb-1 mb-md-0"
+              style="margin-right: 60px"
+            >
+              <a
+                href="/"
+                class="d-inline-flex link-body-emphasis text-decoration-none"
+              >
+                <img
+                  src="/img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
+                  width="175"
+                />
+              </a>
+            </div>
+          </div>
+          <button
+            style="color: white; border-color: white"
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#basic-navbar-nav"
+            aria-controls="basic-navbar-nav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="basic-navbar-nav">
+            <ul
+              class="nav navbar-nav col-12 col-md-auto mb-1 justify-content-center mb-md-0"
+            >
+              <li class="nav-item">
+                <a href="/" class="nav-link px-5">الصفحة الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a href="/categories" class="nav-link px-5">التصنيفات</a>
+              </li>
+              <li class="nav-item">
+                <a href="/about-us" class="nav-link px-5 link-secondary"
+                  >من نحن</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/visit-us/" class="nav-link px-5">زورونا</a>
+              </li>
+            </ul>
+            <div class="col-md-2 text-end"></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <section>
+      <div class="album" style="margin: 7rem; padding: 10rem">
+        <div class="custom-card">
+          مجوهرات مخرّم مملكة جسدت رحلتها المديدة بعالم الحليّ برونق مميز ،من
+          أبرز العلامات التجارية المرموقة في ليبيا ، تعكس الهوية المحلية بأسلوب
+          معاصر.
+        </div>
+        <div class="custom-card-2">
+          استمتعي وتألقي بقطع مخرّم وابرزي جمالك بلمسات من السحر الأخاذ .
+        </div>
+      </div>
+    </section>
+    <section style="margin-bottom: 150px">
+      <div class="container py-4">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="square-container">
+              <div class="square-content">
+                <img
+                  src="tmp-724-f-0-be-9-6-c-0-f-417-a-8-e-94-ba-63-e-5-ef-2-cde-40.png"
+                  alt="Image Description"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="square-container">
+              <div class="square-content">
+                <img src="rectangle-240.png" alt="Image Description" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="square-container">
+              <div class="square-content">
+                <img src="rectangle-250.png" alt="Image Description" />
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="square-container">
+              <div class="square-content">
+                <img
+                  src="tmp-724-f-0-be-9-6-c-0-f-417-a-8-e-94-ba-63-e-5-ef-2-cde-40.png"
+                  alt="Image Description"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col">
+            <img
+              class="footerLogo"
+              src="/img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
+              width="300 "
+            />
+          </div>
+          <div class="col">
+            <div class="row">
+              <h4 class="golden-line"><span>فروعنا</span></h4>
+            </div>
+            <div class="branches">
+              <div class="row">
+                <span>Al-nofleen</span>
+              </div>
+              <div class="row">
+                <span>Al-jraba</span>
+              </div>
+              <div class="row">
+                <span>Hay Al-andaluse</span>
+              </div>
+              <div class="row">
+                <span>Al-qadesiya</span>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+              <h4 class="golden-line" style="position: relative; right: 35px">
+                <span>المجوهرات</span>
+              </h4>
+            </div>
+            <div class="jewelers">
+              <div class="row">
+                <span>ذهب ابيض</span>
+              </div>
+              <div class="row">
+                <span>قراط 21</span>
+              </div>
+              <div class="row">
+                <span>عربي</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5">
+          <div class="row">
+            <h4 class="full-golden-line"><span>تواصل معانا</span></h4>
+          </div>
+          <div class="container contactus">
+            <div class="row">
+              <div class="col-6 col-md-3">+218-9xxxxxxx</div>
+              <div class="col-6 col-md-3">فيسبوك</div>
+              <div class="col-6 col-md-3 d-md-none">انستقرام</div>
+              <div class="col-6 col-md-3">xxxx@gmail.com</div>
+              <div class="col-6 col-md-3 d-none d-md-block">انستقرام</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"
+  ></script>
+</html>

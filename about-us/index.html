@@ -71,6 +71,10 @@
         justify-content: center;
         align-items: center;
         overflow: hidden; /* Hide overflow if the image is too large */
+        background-image: url("rectangle-710.png");
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: contain; /* Make the full image fit into the container */
       }
 
       .full-height-section img {
@@ -141,7 +145,10 @@
       .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
       }
-
+      .album {
+        margin: 2rem; /* Reduced margin */
+        padding: 2rem; /* Reduced padding */
+      }
       .custom-card {
         background: #f8f9fa; /* Light grey background */
         border-radius: 25px; /* Rounded corners */
@@ -158,11 +165,20 @@
         top: 50%; /* Push down to the middle of the viewport */
         transform: translateY(-50%); /* Center vertically */
         box-sizing: border-box; /* Include padding in the element's total width and height */
+        margin-bottom: 2rem; /* Space between cards on mobile */
       }
       @media (max-width: 576px) {
-        .custom-card {
-          padding: 1.5rem; /* Smaller padding on mobile */
+        .album {
+          margin: 7rem; /* Original margin for larger devices */
+          padding: 10rem; /* Original padding for larger devices */
         }
+
+        .custom-card,
+        .custom-card-2 {
+          /* ... existing styles ... */
+          margin-bottom: 0; /* Remove space between cards on larger screens */
+        }
+
         .album {
           margin: 0rem; /* Smaller margin on mobile */
           padding: 0rem;
@@ -200,9 +216,50 @@
         object-fit: cover; /* This will cover the whole area of the square */
       }
     </style>
+    <style>
+      .container2 {
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Set two columns */
+        grid-gap: 0px;
+        width: 100%; /* Full width of the container */
+      }
+      .item {
+        position: relative; /* Needed for absolute positioning of pseudo-element */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Hide overflow */
+      }
+      .item::before {
+        content: "";
+        display: block;
+        padding-top: 100%; /* Padding-top to maintain the aspect ratio of 1:1 */
+      }
+      .item-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden; /* Prevents image from spilling outside the container */
+      }
+      .item-content img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* This will cover the whole area of the square without stretching the image */
+      }
+    </style>
   </head>
   <body>
-    <div style="height: 100vh; background-image: url('rectangle-710.png')">
+    <div
+      style="
+        height: 100vh;
+        background-image: url('rectangle-710.png');
+        background-position: center; /* Center the image */
+        background-size: auto; /* Make the full image fit into the container */
+      "
+    >
       <nav id="nav" class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
           <div class="navbar-brand mx-auto">
@@ -249,7 +306,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a href="/visit-us/" class="nav-link px-5">زورونا</a>
+                <a href="/our-brunches/" class="nav-link px-5">زورونا</a>
               </li>
             </ul>
             <div class="col-md-2 text-end"></div>
@@ -258,7 +315,7 @@
       </nav>
     </div>
     <section>
-      <div class="album" style="margin: 7rem; padding: 10rem">
+      <div class="album" style="margin: 7rem 1rem; padding: 10rem 1rem">
         <div class="custom-card">
           مجوهرات مخرّم مملكة جسدت رحلتها المديدة بعالم الحليّ برونق مميز ،من
           أبرز العلامات التجارية المرموقة في ليبيا ، تعكس الهوية المحلية بأسلوب
@@ -270,42 +327,31 @@
       </div>
     </section>
     <section style="margin-bottom: 150px">
-      <div class="container py-4">
-        <div class="row g-3">
-          <div class="col-6">
-            <div class="square-container">
-              <div class="square-content">
-                <img
-                  src="tmp-724-f-0-be-9-6-c-0-f-417-a-8-e-94-ba-63-e-5-ef-2-cde-40.png"
-                  alt="Image Description"
-                />
-              </div>
-            </div>
+      <div class="container container2">
+        <div class="item">
+          <div class="item-content">
+            <img
+              src="tmp-724-f-0-be-9-6-c-0-f-417-a-8-e-94-ba-63-e-5-ef-2-cde-40.png"
+              alt="Image Description"
+            />
           </div>
-          <div class="col-6">
-            <div class="square-container">
-              <div class="square-content">
-                <img src="rectangle-240.png" alt="Image Description" />
-              </div>
-            </div>
+        </div>
+        <div class="item">
+          <div class="item-content">
+            <img src="rectangle-240.png" alt="Image Description" />
           </div>
-
-          <div class="col-6">
-            <div class="square-container">
-              <div class="square-content">
-                <img src="rectangle-250.png" alt="Image Description" />
-              </div>
-            </div>
+        </div>
+        <div class="item">
+          <div class="item-content">
+            <img src="rectangle-250.png" alt="Image Description" />
           </div>
-          <div class="col-6">
-            <div class="square-container">
-              <div class="square-content">
-                <img
-                  src="tmp-724-f-0-be-9-6-c-0-f-417-a-8-e-94-ba-63-e-5-ef-2-cde-40.png"
-                  alt="Image Description"
-                />
-              </div>
-            </div>
+        </div>
+        <div class="item">
+          <div class="item-content">
+            <img
+              src="tmp-724-f-0-be-9-6-c-0-f-417-a-8-e-94-ba-63-e-5-ef-2-cde-40.png"
+              alt="Image Description"
+            />
           </div>
         </div>
       </div>
@@ -316,7 +362,7 @@
           <div class="col">
             <img
               class="footerLogo"
-              src="/img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
+              src="img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
               width="300 "
             />
           </div>
@@ -326,16 +372,24 @@
             </div>
             <div class="branches">
               <div class="row">
-                <span>Al-nofleen</span>
+                <a href="https://maps.app.goo.gl/KPBZMawqKXFsyss19">
+                  <span>Al-nofleen</span>
+                </a>
               </div>
               <div class="row">
-                <span>Al-jraba</span>
+                <a href="https://maps.app.goo.gl/x4rXUNHJQHJNCBjm9">
+                  <span>Al-jraba</span>
+                </a>
               </div>
               <div class="row">
-                <span>Hay Al-andaluse</span>
+                <a href="https://maps.app.goo.gl/VvJ46zWdfpJabcJu5">
+                  <span>Hay Al-andaluse</span>
+                </a>
               </div>
               <div class="row">
-                <span>Al-qadesiya</span>
+                <a href="https://maps.app.goo.gl/VgZ7aNaX3mvLcZst5">
+                  <span>Al-qadesiya</span>
+                </a>
               </div>
             </div>
           </div>
@@ -347,13 +401,19 @@
             </div>
             <div class="jewelers">
               <div class="row">
-                <span>ذهب ابيض</span>
+                <a href="/ذهب ابيض">
+                  <span>ذهب ابيض</span>
+                </a>
               </div>
               <div class="row">
-                <span>قراط 21</span>
+                <a href="/طقم">
+                  <span>قراط 21</span>
+                </a>
               </div>
               <div class="row">
-                <span>عربي</span>
+                <a href="/عربي">
+                  <span>عربي</span>
+                </a>
               </div>
             </div>
           </div>
@@ -365,10 +425,18 @@
           <div class="container contactus">
             <div class="row">
               <div class="col-6 col-md-3">+218-9xxxxxxx</div>
-              <div class="col-6 col-md-3">فيسبوك</div>
-              <div class="col-6 col-md-3 d-md-none">انستقرام</div>
+              <div class="col-6 col-md-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100090311872105&mibextid=LQQJ4d"
+                  >فيسبوك</a
+                >
+              </div>
               <div class="col-6 col-md-3">xxxx@gmail.com</div>
-              <div class="col-6 col-md-3 d-none d-md-block">انستقرام</div>
+              <div class="col-6 col-md-3">
+                <a href="https://www.instagram.com/mkharrm_jewelry_ly"
+                  >انستقرام</a
+                >
+              </div>
             </div>
           </div>
         </div>

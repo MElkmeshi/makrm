@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>مخرم للمجوهرات</title>
+    <title>عربي</title>
     <!-- <link rel="stylesheet" href="style.css"  /> -->
     <link rel="stylesheet" href="" />
     <link
@@ -64,7 +64,8 @@
         text-transform: capitalize;
       }
       .card img {
-        width: 265px;
+        /* width: 331px; */
+        height: 323px;
         flex-shrink: 0;
         object-fit: cover;
         border-radius: 40px 40px 0 0;
@@ -172,7 +173,38 @@
         position: relative;
         left: 39px;
       }
+      .back-to-home-page {
+        color: #d9d9d9;
+        margin: auto;
+        padding: 10px;
+        text-align: center;
+        font-family: "Inter-Medium", sans-serif;
+        font-size: 20px;
+        line-height: 120%;
+        font-weight: 300;
+        border-radius: 0px 0px 30px 30px;
+        width: 400px;
+        height: 70px;
+        background-color: #4e8071;
+      }
+      #mobile-navbar {
+        display: none;
+      }
       @media (max-width: 576px) {
+        .back-to-home-page {
+          color: #d9d9d9;
+          margin: auto;
+          padding: 10px;
+          text-align: center;
+          font-family: "Inter-Medium", sans-serif;
+          font-size: 20px;
+          line-height: 120%;
+          font-weight: 300;
+          border-radius: 0px 0px 30px 30px;
+          width: 300px;
+          height: 50px;
+          background-color: #4e8071;
+        }
         .greenbutton {
           width: 120px; /* Smaller width for mobile devices */
           margin-bottom: 20px;
@@ -194,25 +226,12 @@
         .branches span {
           margin-bottom: 2px;
         }
-      }
-
-      .back-to-home-page {
-        color: #d9d9d9;
-        margin: auto;
-        padding: 10px;
-
-        text-align: center;
-        font-family: "Inter-Medium", sans-serif;
-        font-size: 20px;
-        line-height: 120%;
-        font-weight: 300;
-        border-radius: 0px 0px 30px 30px;
-        position: absolute;
-        width: 400px;
-        height: 70px;
-        bottom: 37%;
-        left: 33%;
-        background-color: #4e8071;
+        .navbar {
+          display: none;
+        }
+        #mobile-navbar {
+          display: block;
+        }
       }
     </style>
   </head>
@@ -252,7 +271,9 @@
           >
             <li class="nav-item">
               <a href="/">
-                <div class="back-to-home-page">الرجوع للصفحة الرئيسية</div>
+                <div class="back-to-home-page fixed-top">
+                  الرجوع للصفحة الرئيسية
+                </div>
               </a>
             </li>
           </ul>
@@ -260,9 +281,36 @@
         </div>
       </div>
     </nav>
+    <nav id="mobile-navbar">
+      <div class="container">
+        <div class="mx-auto">
+          <a href="/">
+            <div class="back-to-home-page fixed-top">
+              الرجوع للصفحة الرئيسية
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
 
     <section style="margin: 100px 0">
       <div class="album py-5 bg-body-tertiary">
+        <center style="margin-bottom: 60px">
+          <span
+            style="
+              color: #264d42;
+              text-align: center;
+              font-family: Inter;
+              font-size: 35px;
+              font-style: normal;
+              font-weight: 800;
+              line-height: 120%; /* 42px */
+              text-transform: capitalize;
+              text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+            "
+            >عربي</span
+          >
+        </center>
         <div class="container">
           <div
             class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3"
@@ -275,7 +323,7 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <a href="/visit-us">
+                    <a href="/our-brunches">
                       <div class="buybutton">احصل عليها</div>
                     </a>
                   </div>
@@ -289,7 +337,7 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <a href="/visit-us">
+                    <a href="/our-brunches">
                       <div class="buybutton">احصل عليها</div>
                     </a>
                   </div>
@@ -303,7 +351,7 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <a href="/visit-us">
+                    <a href="/our-brunches">
                       <div class="buybutton">احصل عليها</div>
                     </a>
                   </div>
@@ -317,7 +365,7 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <a href="/visit-us">
+                    <a href="/our-brunches">
                       <div class="buybutton">احصل عليها</div>
                     </a>
                   </div>
@@ -331,7 +379,7 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <a href="/visit-us">
+                    <a href="/our-brunches">
                       <div class="buybutton">احصل عليها</div>
                     </a>
                   </div>
@@ -345,7 +393,7 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <a href="/visit-us">
+                    <a href="/our-brunches">
                       <div class="buybutton">احصل عليها</div>
                     </a>
                   </div>
@@ -359,7 +407,7 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <a href="/visit-us">
+                    <a href="/our-brunches">
                       <div class="buybutton">احصل عليها</div>
                     </a>
                   </div>
@@ -373,7 +421,7 @@
                   <div
                     class="d-flex justify-content-center align-items-center h-100"
                   >
-                    <a href="/visit-us">
+                    <a href="/our-brunches">
                       <div class="buybutton">احصل عليها</div>
                     </a>
                   </div>
@@ -391,7 +439,7 @@
           <div class="col">
             <img
               class="footerLogo"
-              src="/img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
+              src="img/tmp_724f0be9-6c0f-417a-8e94-ba63e5ef2cde.png"
               width="300 "
             />
           </div>
@@ -401,16 +449,24 @@
             </div>
             <div class="branches">
               <div class="row">
-                <span>Al-nofleen</span>
+                <a href="https://maps.app.goo.gl/KPBZMawqKXFsyss19">
+                  <span>Al-nofleen</span>
+                </a>
               </div>
               <div class="row">
-                <span>Al-jraba</span>
+                <a href="https://maps.app.goo.gl/x4rXUNHJQHJNCBjm9">
+                  <span>Al-jraba</span>
+                </a>
               </div>
               <div class="row">
-                <span>Hay Al-andaluse</span>
+                <a href="https://maps.app.goo.gl/VvJ46zWdfpJabcJu5">
+                  <span>Hay Al-andaluse</span>
+                </a>
               </div>
               <div class="row">
-                <span>Al-qadesiya</span>
+                <a href="https://maps.app.goo.gl/VgZ7aNaX3mvLcZst5">
+                  <span>Al-qadesiya</span>
+                </a>
               </div>
             </div>
           </div>
@@ -422,13 +478,19 @@
             </div>
             <div class="jewelers">
               <div class="row">
-                <span>ذهب ابيض</span>
+                <a href="/ذهب ابيض">
+                  <span>ذهب ابيض</span>
+                </a>
               </div>
               <div class="row">
-                <span>قراط 21</span>
+                <a href="/طقم">
+                  <span>قراط 21</span>
+                </a>
               </div>
               <div class="row">
-                <span>عربي</span>
+                <a href="/عربي">
+                  <span>عربي</span>
+                </a>
               </div>
             </div>
           </div>
@@ -440,10 +502,18 @@
           <div class="container contactus">
             <div class="row">
               <div class="col-6 col-md-3">+218-9xxxxxxx</div>
-              <div class="col-6 col-md-3">فيسبوك</div>
-              <div class="col-6 col-md-3 d-md-none">انستقرام</div>
+              <div class="col-6 col-md-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100090311872105&mibextid=LQQJ4d"
+                  >فيسبوك</a
+                >
+              </div>
               <div class="col-6 col-md-3">xxxx@gmail.com</div>
-              <div class="col-6 col-md-3 d-none d-md-block">انستقرام</div>
+              <div class="col-6 col-md-3">
+                <a href="https://www.instagram.com/mkharrm_jewelry_ly"
+                  >انستقرام</a
+                >
+              </div>
             </div>
           </div>
         </div>

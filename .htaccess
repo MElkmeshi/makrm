@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteBase /
+
+# Redirect all requests not pointing directly to files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?lang=$1 [NC,L,QSA]

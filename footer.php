@@ -193,9 +193,9 @@ require_once "lang.php";
           if ($result = mysqli_query($con, "SELECT * FROM category")) {
             while ($row = mysqli_fetch_assoc($result)) {
               if ($lang == "en") {
-                echo "<div class='row'><a href='/" . $row['name'] . "/?lang=en'><span>" . $row['en_name'] . "</span></a></div>";
+                echo "<div class='row'><a href='/" . $row['categoryName'] . "/?lang=en'><span>" . $row['categoryNameEN'] . "</span></a></div>";
               } else {
-                echo "<div class='row'><a href='/" . $row['name'] . "'><span>" . $row['name'] . "</span></a></div>";
+                echo "<div class='row'><a href='/" . $row['categoryName'] . "'><span>" . urldecode($row['categoryName']) . "</span></a></div>";
               }
             }
             mysqli_free_result($result);

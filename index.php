@@ -165,107 +165,23 @@ require "lang.php";
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" style="margin-bottom: 70px">
-          <div class="col 1">
-            <div class="card shadow-sm products">
-              <img src="img/DSC04249.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="/our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col 2">
-            <div class="card shadow-sm">
-              <img src="img/as (1).jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col 3">
-            <div class="card shadow-sm">
-              <img src="img/scz.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col 4">
-            <div class="card shadow-sm">
-              <img src="img/W.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col 5">
-            <div class="card shadow-sm">
-              <img src="img/DSC03855.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col 6">
-            <div class="card shadow-sm">
-              <img src="img/DSC04202.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col 7">
-            <div class="card shadow-sm">
-              <img src="img/DSC03877.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col 8">
-            <div class="card shadow-sm">
-              <img src="img/DSC03100.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php
+          if ($products = mysqli_query($con, "SELECT * FROM product Where categoryID = 11")) {
+            $getitbutton = ($lang == "en") ? "Get It" : "احصل عليها";
+            while ($product = mysqli_fetch_assoc($products)) {
+              $arName = urldecode($product["productName"]);
+              $enName = $product["productNameEN"];
+              $name = ($lang == "en") ? $enName : $arName;
+              echo "<div class='col'> <div class='card shadow-sm'> <img src='" . $product["productImage"] . "' alt='' /> <div class='card-body'> <div class='d-flex justify-content-center align-items-center h-100'> <a href='/our-brunches'> <div class='buybutton'>" . $name . "</div> </a> </div> </div> </div> </div>";
+            }
+          }
+
+          ?>
         </div>
       </div>
     </div>
     <div class="d-flex justify-content-center align-items-center h-100" style="margin-bottom: 150px">
-      <a href="باولا/<?php ($lang == "en") ? print "?lang=en" : "" ?>">
+      <a href="/categories/<?php ($lang == "en") ? print "?lang=en" : "" ?>">
         <button style="
               color: rgba(0, 0, 0, 0.7);
               text-align: center;
@@ -295,77 +211,7 @@ require "lang.php";
       </a>
     </div>
   </section>
-  <section>
-    <div class="album bg-body-tertiary" style="margin: 0 0; padding: 100px 0">
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-          <div class="col mx-auto">
-            <div class="card shadow-sm">
-              <img src="img/0000023.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col mx-auto">
-            <div class="card shadow-sm">
-              <img src="img/000022.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col mx-auto">
-            <div class="card shadow-sm">
-              <img src="img/00021.jpg" alt="" />
-              <div class="card-body">
-                <div class="d-flex justify-content-center align-items-center h-100">
-                  <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="d-flex justify-content-center align-items-center h-100" style="margin-bottom: 150px">
-      <a href="عربي<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-        <button style="
-              color: rgba(0, 0, 0, 0.7);
-              text-align: center;
-              text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-              font-family: Inter;
-              font-size: 20px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 120%; /* 24px */
-              text-transform: capitalize;
-              border-radius: 20px;
-              border: none;
-              background: rgba(212, 212, 212, 0.5);
-              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-              width: 170px;
-              height: 50px;
-              flex-shrink: 0;
-              position: relative;
-              bottom: 30px;
-            ">
-          <?php ($lang == "en") ? print "View More"  :  print "عرض المزيد";
-          ?>
-        </button>
-      </a>
-    </div>
-  </section>
+
   <?php require "footer.php"; ?>
 
 </body>

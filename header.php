@@ -55,10 +55,13 @@ require_once "lang.php";
             <?php
             if ($result = mysqli_query($con, "SELECT * FROM category")) {
               while ($row = mysqli_fetch_assoc($result)) {
+                if ($row['categoryID'] == 11) {
+                  continue;
+                }
                 if ($lang == "en") {
-                  echo "<li><a class='dropdown-item' href='/" . $row['name'] . "/?lang=en'>" . $row['en_name'] . "</a></li>";
+                  echo "<li><a class='dropdown-item' href='/category/?lang=en&cat=" . $row['categoryName'] . "'>" . $row['categoryNameEN'] . "</a></li>";
                 } else {
-                  echo "<li><a class='dropdown-item' href='/" . $row['name'] . "'>" . $row['name'] . "</a></li>";
+                  echo "<li><a class='dropdown-item' href='/category/?cat=" . $row['categoryName'] . "'>" . urldecode($row['categoryName']) . "</a></li>";
                 }
               }
               mysqli_free_result($result);
@@ -83,6 +86,14 @@ require_once "lang.php";
                                                                                                             echo "الموقع";
                                                                                                           }
                                                                                                           ?></a>
+        </li>
+        <li class="nav-item">
+          <a href="/<?php ($lang == "en") ? print "" : print "?lang=en" ?>" class="nav-link px-5"> <?php if ($lang == "en") {
+                                                                                                    echo "العربية";
+                                                                                                  } else {
+                                                                                                    echo "English";
+                                                                                                  }
+                                                                                                  ?></a>
         </li>
       </ul>
       <div class="col-md-2 text-end"></div>

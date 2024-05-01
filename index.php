@@ -16,53 +16,6 @@ require "lang.php";
   <!-- <link rel="stylesheet" href="" /> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <style>
-    /*
-    
-    .greenbutton {
-      width: 152px;
-      height: 49px;
-      flex-shrink: 0;
-      border-radius: 20px;
-      background: #4e8071;
-      border: none;
-      flex-shrink: 0;
-      border-radius: 20px;
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    }
-
-    .greenbutton-text {
-      color: #f6f1eb;
-      text-align: center;
-      font-family: Inter;
-      font-size: 1rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 120%;
-      text-transform: capitalize;
-    }
-    
-        .overlay-section {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 35%;
-      border-radius: 21px 21px 0 0;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-    .btn-primary:hover {
-      background-color: #002e20;
-      border-color: #002e20;
-      color: #002e20;
-    }
-
-    button.btn.btn-primary:active {
-      background-color: #002e20;
-    border-color: #002e20;
-    }
-    */
-
-
     .full-height-section {
       height: 85vh;
       display: flex;

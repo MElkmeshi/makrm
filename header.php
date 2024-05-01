@@ -16,8 +16,26 @@ require_once "lang.php";
     text-transform: capitalize;
   }
 
-  .dropdown-item {
-    text-align: <?php echo ($lang == "en") ? "left" : "right" ?>;
+  .dropdown-menu {
+    border: 0;
+    background-color: #F8F9FA;
+  }
+
+  .navbar-brand {
+    position: relative;
+    <?php if ($lang == "en") {
+      echo "left: 40px;";
+    } else {
+      echo "right: 40px;";
+    }
+    ?>
+  }
+
+  @media(max-width: 576px) {
+    .nav-link {
+      font-size: 15px;
+    }
+
   }
 </style>
 <nav id="nav" class="navbar navbar-expand-lg bg-body-tertiary">
@@ -59,9 +77,9 @@ require_once "lang.php";
                   continue;
                 }
                 if ($lang == "en") {
-                  echo "<li><a class='dropdown-item' href='/category/?lang=en&cat=" . $row['categoryName'] . "'>" . $row['categoryNameEN'] . "</a></li>";
+                  echo "<center><li><a class='dropdown-item' href='/category/?lang=en&cat=" . $row['categoryName'] . "'>" . $row['categoryNameEN'] . "</a></li>/center>";
                 } else {
-                  echo "<li><a class='dropdown-item' href='/category/?cat=" . $row['categoryName'] . "'>" . urldecode($row['categoryName']) . "</a></li>";
+                  echo "<center><li><a class='dropdown-item' href='/category/?cat=" . $row['categoryName'] . "'>" . urldecode($row['categoryName']) . "</a></li></center>";
                 }
               }
               mysqli_free_result($result);
@@ -89,11 +107,11 @@ require_once "lang.php";
         </li>
         <li class="nav-item">
           <a href="/<?php ($lang == "en") ? print "" : print "?lang=en" ?>" class="nav-link px-5"> <?php if ($lang == "en") {
-                                                                                                    echo "العربية";
-                                                                                                  } else {
-                                                                                                    echo "English";
-                                                                                                  }
-                                                                                                  ?></a>
+                                                                                                      echo "العربية";
+                                                                                                    } else {
+                                                                                                      echo "English";
+                                                                                                    }
+                                                                                                    ?></a>
         </li>
       </ul>
       <div class="col-md-2 text-end"></div>

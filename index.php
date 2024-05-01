@@ -117,7 +117,18 @@ require "lang.php";
   <section>
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
+        <?php
+        $category = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM category WHERE categoryID = 11"));
+        echo "<div class='album bg-body-tertiary'><center style='margin-bottom: 50px'> <span style=' color: #264d42; text-align: center; font-family: Inter; font-size: 35px; font-style: normal; font-weight: 800; line-height: 120%; text-transform: capitalize;'>";
+        if ($lang == "en") {
+          echo $category['categoryNameEN'];
+        } else {
+          echo rawurldecode($category['categoryName']);
+        }
+        echo  "</span > </center> </div>";
+        ?>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" style="margin-bottom: 70px">
+
           <?php
           if ($products = mysqli_query($con, "SELECT * FROM product Where categoryID = 11")) {
             $getitbutton = ($lang == "en") ? "Get It" : "احصل عليها";
@@ -128,7 +139,66 @@ require "lang.php";
               echo "<div class='col'> <div class='card shadow-sm'> <img src='" . $product["productImage"] . "' alt='' /> <div class='card-body'> <div class='d-flex justify-content-center align-items-center h-100'> <a href='/our-brunches'> <div class='buybutton'>" . $name . "</div> </a> </div> </div> </div> </div>";
             }
           }
+          ?>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center h-100" style="margin-bottom: 150px">
+      <a href="/categories/<?php ($lang == "en") ? print "?lang=en" : "" ?>">
+        <button style="
+              color: rgba(0, 0, 0, 0.7);
+              text-align: center;
+              text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              font-family: Inter;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 120%; /* 24px */
+              text-transform: capitalize;
+              border-radius: 20px;
+              border: none;
+              background: rgba(212, 212, 212, 0.5);
+              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+              width: 170px;
+              height: 50px;
+              flex-shrink: 0;
+              position: relative;
+              bottom: 30px;
+            ">
+          <?php if ($lang == "en") {
+            echo "View More";
+          } else {
+            echo "عرض المزيد";
+          } ?>
+        </button>
+      </a>
+    </div>
+  </section>
+  <section>
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+        <?php
+        $category = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM category WHERE categoryID = 13"));
+        echo "<div class='album bg-body-tertiary'><center style='margin-bottom: 50px'> <span style=' color: #264d42; text-align: center; font-family: Inter; font-size: 35px; font-style: normal; font-weight: 800; line-height: 120%; text-transform: capitalize;'>";
+        if ($lang == "en") {
+          echo $category['categoryNameEN'];
+        } else {
+          echo rawurldecode($category['categoryName']);
+        }
+        echo  "</span > </center> </div>";
+        ?>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" style="margin-bottom: 70px">
 
+          <?php
+          if ($products = mysqli_query($con, "SELECT * FROM product Where categoryID = 13")) {
+            $getitbutton = ($lang == "en") ? "Get It" : "احصل عليها";
+            while ($product = mysqli_fetch_assoc($products)) {
+              $arName = urldecode($product["productName"]);
+              $enName = $product["productNameEN"];
+              $name = ($lang == "en") ? $enName : $arName;
+              echo "<div class='col'> <div class='card shadow-sm'> <img src='" . $product["productImage"] . "' alt='' /> <div class='card-body'> <div class='d-flex justify-content-center align-items-center h-100'> <a href='/our-brunches'> <div class='buybutton'>" . $name . "</div> </a> </div> </div> </div> </div>";
+            }
+          }
           ?>
         </div>
       </div>

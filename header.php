@@ -73,7 +73,7 @@ require_once "lang.php";
             <?php
             if ($result = mysqli_query($con, "SELECT * FROM category")) {
               while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['categoryID'] == 11) {
+                if ($row['categoryID'] == 11 || $row['categoryID'] == 13) {
                   continue;
                 }
                 if ($lang == "en") {

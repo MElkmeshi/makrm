@@ -144,7 +144,7 @@ include '../lang.php';
         <?php
         if ($categories = mysqli_query($con, "SELECT * FROM category")) {
           while ($category = mysqli_fetch_assoc($categories)) {
-            if ($category['categoryID'] == 11) {
+            if ($row['categoryID'] == 11 || $row['categoryID'] == 13) {
               continue;
             }
             echo "<div class='album bg-body-tertiary' style='margin: 150px 0'><center style='margin-bottom: 30px'> <span style=' color: #264d42; text-align: center; font-family: Inter; font-size: 35px; font-style: normal; font-weight: 800; line-height: 120%; /* 42px */ text-transform: capitalize; ' > ";

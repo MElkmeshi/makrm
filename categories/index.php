@@ -99,6 +99,68 @@ include '../lang.php';
       height: 50px;
       background-color: #4e8071;
     }
+
+    .svg {
+      width: 300px;
+    }
+  }
+
+  .viewmorebutton {
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-transform: capitalize;
+    border-radius: 20px;
+    border: none;
+    background: rgba(212, 212, 212, 0.5);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 170px;
+    height: 50px;
+    flex-shrink: 0;
+    position: relative;
+    bottom: 30px;
+  }
+
+  .categoryName {
+    color: #264d42;
+    text-align: center;
+    font-family: Inter;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  .new {
+    background: rgba(78, 128, 113, 0.32);
+    padding-bottom: 120px;
+  }
+
+  .newbutton {
+    border-radius: 30px;
+    background: #F6F1EB;
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 220px;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
+  .newtext {
+    color: #264D42;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 120%;
+    text-transform: capitalize;
   }
 </style>
 </head>
@@ -138,39 +200,59 @@ include '../lang.php';
     </div>
   </nav>
 
-  <section style="margin-bottom: -300px">
+  <section style="margin-bottom: -200px">
     <center>
       <div class="album bg-body-tertiary" style="margin: 150px 0">
+        <div class="new">
+          <center style="margin-bottom: 70px;padding-top:30px">
+            <span class='categoryName'> <?php ($lang == "en") ? print "New!" : print "جديد!" ?></span>
+          </center>
+          <div class="container">
+            <div class="row">
+              <div class="col mx-auto" style="margin-bottom: 70px;">
+                <a href="/جديد">
+
+                  <button class="newbutton"><span class="newtext"><?php ($lang == "en") ? print "Group 2024" : print "مجموعة 2024" ?></span></button>
+                </a>
+              </div>
+              <div class="col mx-auto" style="margin-bottom: 70px;">
+                <a href="/جديد">
+                  <button class="newbutton"><span class="newtext"><?php ($lang == "en") ? print "New Makhrram" : print "جديد مخرم" ?></span></button> </a>
+              </div>
+              <div class="col mx-auto" style="margin-bottom: 70px;"> <a href="/جديد"><button class="newbutton"><span class="newtext"><?php ($lang == "en") ? print "Recently Released" : print "عرض حديثا" ?></span></button> </a></div>
+            </div>
+          </div>
+        </div>
         <?php
         if ($categories = mysqli_query($con, "SELECT * FROM category")) {
           while ($category = mysqli_fetch_assoc($categories)) {
-            if ($row['categoryID'] == 11 || $row['categoryID'] == 13) {
+            if ($category['categoryID'] == 11 || $category['categoryID'] == 12 || $category['categoryID'] == 13) {
               continue;
             }
-            echo "<div class='album bg-body-tertiary' style='margin: 150px 0'><center style='margin-bottom: 30px'> <span style=' color: #264d42; text-align: center; font-family: Inter; font-size: 35px; font-style: normal; font-weight: 800; line-height: 120%; /* 42px */ text-transform: capitalize; ' > ";
+            echo "<div class='album bg-body-tertiary' style='margin: 150px 0'><center style='margin-bottom: 30px'> <span class='categoryName'> ";
             if ($lang == "en") {
               echo $category['categoryNameEN'];
             } else {
               echo rawurldecode($category['categoryName']);
             }
             echo  "</span > </center>";
-            echo "<div class='container' style='margin-bottom: ' 50px> <div class='row' row-cols-1 row-cols-sm-2 row-cols-md-3 g-3>";
+            echo "<div class='container' > <div class='row'>";
             if ($products = mysqli_query($con, "SELECT * FROM product WHERE categoryID = " . $category['categoryID'] . " LIMIT 2")) {
               while ($product = mysqli_fetch_assoc($products)) {
-                echo "<div class='col mx-auto'> <img src='" . $product["productImage"] . "' alt='' /> </div> ";
+                echo "<div class='col mx-auto' style='margin-bottom: 70px;'> <img src='" . $product["productImage"] . "' alt='' /> </div> ";
               }
               echo "  </div></div></div>";
               echo "<div> <a href='/category/?cat=" . $category['categoryName'];
               if ($lang == "en") {
                 echo "&lang=en";
               }
-              echo  "'> <div style=' color: #264d42; font-family: Inter; font-size: 28px; font-style: normal; font-weight: 800; line-height: 120%; /* 36px */ text-transform: capitalize; padding-bottom: 30px; ' > ";
+              echo  "'> <div style=' color: #264d42; font-family: Inter; font-size: 28px; font-style: normal; font-weight: 800; line-height: 120%; /* 36px */ text-transform: capitalize; padding-bottom: 30px; ' > <button class='viewmorebutton'>";
               if ($lang == "en") {
                 echo "View More";
               } else {
                 echo "عرض المزيد";
               }
-              echo " </div> </a> </div>";
+              echo " </button></div> </a> </div>";
             }
           }
 
@@ -182,7 +264,7 @@ include '../lang.php';
   </section>
   <section class="h-100 d-flex align-items-center justify-content-center">
     <a href="/our-brunches/<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-      <img src="svg/<?php ($lang == "en") ? print "en.svg" : print "ar.svg" ?>" alt="">
+      <img class="svg" src="svg/<?php ($lang == "en") ? print "en.svg" : print "ar.svg" ?>" alt="">
     </a>
   </section>
   <?php include '../footer.php'; ?>

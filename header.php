@@ -72,16 +72,29 @@ require_once "lang.php";
           <ul class="dropdown-menu">
             <?php
             if ($result = mysqli_query($con, "SELECT * FROM category")) {
+              //كل الاقسام
+              if ($lang == "en") {
+                echo "<center><li><a class='dropdown-item' href='/categories/?lang=en'>" . "All Categories" . "</a></li></center>";
+              } else {
+                echo "<center><li><a class='dropdown-item' href='/categories/'>" . "عرض كل التصنيفات" . "</a></li></center>";
+              }
+              //الجديد
+              if ($lang == "en") {
+                echo "<center><li><a class='dropdown-item' href='/جديد/?lang=en'>" . "New!" . "</a></li></center>";
+              } else {
+                echo "<center><li><a class='dropdown-item' href='/جديد/'>" . "جديد!" . "</a></li></center>";
+              }
               while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['categoryID'] == 11 || $row['categoryID'] == 13) {
+                if ($row['categoryID'] == 11 || $row['categoryID'] == 12 || $row['categoryID'] == 13) {
                   continue;
                 }
                 if ($lang == "en") {
-                  echo "<center><li><a class='dropdown-item' href='/category/?lang=en&cat=" . $row['categoryName'] . "'>" . $row['categoryNameEN'] . "</a></li>/center>";
+                  echo "<center><li><a class='dropdown-item' href='/category/?lang=en&cat=" . $row['categoryName'] . "'>" . $row['categoryNameEN'] . "</a></li></center>";
                 } else {
                   echo "<center><li><a class='dropdown-item' href='/category/?cat=" . $row['categoryName'] . "'>" . urldecode($row['categoryName']) . "</a></li></center>";
                 }
               }
+
               mysqli_free_result($result);
             }
             ?>

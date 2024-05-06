@@ -142,6 +142,7 @@ require_once "../cat.php";
 
   <div class="container">
     <center style="margin-bottom: 60px">
+
       <span style="
               color: #264d42;
               text-align: center;
@@ -160,10 +161,7 @@ require_once "../cat.php";
       if ($products = mysqli_query($con, "SELECT * FROM product Where categoryID =" . $categoryID . "")) {
         $getitbutton = ($lang == "en") ? "Get It" : "احصل عليها";
         while ($product = mysqli_fetch_assoc($products)) {
-          $arName = urldecode($product["productName"]);
-          $enName = $product["productNameEN"];
-          $name = ($lang == "en") ? $enName : $arName;
-          echo "<div class='col'> <div class='card shadow-sm'> <img src='" . $product["productImage"] . "' alt='' /> <div class='card-body'> <div class='d-flex justify-content-center align-items-center h-100'> <a href='/our-brunches'> <div class='buybutton'>" . $name . "</div> </a> </div> </div> </div> </div>";
+          echo "<div class='col'> <div class='card shadow-sm'> <img src='" . $product["productImage"] . "' alt='' /> <div class='card-body'> <div class='d-flex justify-content-center align-items-center h-100'> <a href='/our-brunches'> <div class='buybutton'>" . $getitbutton . "</div> </a> </div> </div> </div> </div>";
         }
       }
 

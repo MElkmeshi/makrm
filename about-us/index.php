@@ -171,10 +171,10 @@ require "../lang.php";
     <div class="album" style="margin: 7rem 1rem; padding: 10rem 1rem;">
       <div class="custom-card" style="margin-bottom: 120px;">
         <?php if ($lang == "en") {
-          echo "Makram Group was founded in ♡♡♡♡
+          echo "Makram Group was founded in 2004
           in one of the streets of the ancient city of Tripoli, and from there Makram Group started to be in several key areas with five branches.";
         } else {
-          echo "تأسست مجموعة مخرّم في عام ♡♡♡♡
+          echo "تأسست مجموعة مخرّم في عام 2004
           بأحد شوارع مدينة طرابلس العريقة، ومن هناك انطلقت مجموعة مخرّم لتكون في عديد من المناطق الاساسية ب خمس فروع";
         }
         ?>

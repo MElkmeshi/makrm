@@ -1,0 +1,60 @@
+<style>
+  .product-gallery {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin: 10px 0 0;
+  }
+
+  .product-gallery li {
+    display: inline-block;
+    width: 15%;
+    margin: 0 5px;
+  }
+
+  .product-gallery li:first-child {
+    margin-left: 0;
+  }
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mb-sm-40">
+      <div class="gallery">
+        <img id="expandedImg" src="/img/DSC04249.jpg" style="width: 250px" />
+      </div>
+      <ul class="product-gallery">
+        <li>
+          <img
+            style="width: 80%"
+            src="/img/as%20(1).jpg"
+            onclick="transitSrc(this);"
+          />
+        </li>
+        <li>
+          <img
+            style="width: 80%"
+            src="/img/DSC04249.jpg"
+            onclick="transitSrc(this);"
+          />
+        </li>
+        <li>
+          <img
+            style="width: 80%"
+            src="/img/scz.jpg"
+            onclick="transitSrc(this);"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function transitSrc(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    expandImg.src = imgs.src;
+    var fullImage = document.getElementById("viewFullImg");
+    fullImage.href = imgs.href;
+    expandImg.parentElement.style.display = "block";
+  }
+</script>

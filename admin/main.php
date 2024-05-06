@@ -1,7 +1,7 @@
 <?php
 // include('inserting.php');
 include_once('../config.php');
-$query = "SELECT id, productName,productNameEN ,productImage, categoryName FROM product LEFT OUTER JOIN category on product.categoryID = category.categoryID";
+$query = "SELECT id ,productImage, categoryName FROM product LEFT OUTER JOIN category on product.categoryID = category.categoryID";
 $stmt = mysqli_prepare($con, $query);
 ?>
 
@@ -27,8 +27,6 @@ $stmt = mysqli_prepare($con, $query);
         <tr>
             <th>#</th>
             <th>Category Name</th>
-            <th>Product Name</th>
-            <th>Modify Name</th>
             <th>Product Image</th>
             <th>Modify Image</th>
             <th>Delete</th>
@@ -36,16 +34,13 @@ $stmt = mysqli_prepare($con, $query);
         </tr>
         <?php
         if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_bind_result($stmt, $id, $product_name, $product_nameEN,  $product_image, $categoryName);
+            mysqli_stmt_bind_result($stmt, $id,   $product_image, $categoryName);
             $sn = 1;
             while (mysqli_stmt_fetch($stmt)) {
         ?>
                 <tr>
                     <th scope="row"><?php echo $sn; ?> </th>
                     <td data-column="cName"><?php echo urldecode($categoryName) ?></td>
-                    <td class="editable" data-column="pName"><?php echo urldecode($product_name); ?></td>
-                    <td class="editable" data-column="pNameEN"><?php echo $product_nameEN; ?></td>
-                    <td align="center"><button class="edit btn btn-dark" data-id="<?php echo $id; ?>">Modify</button></td>
                     <td align="center"><img src="<?php echo  $product_image; ?>" alt="" width:"200" height="100" /></td>
                     <td align="center">
                         <form action="update_photo.php" method="post" enctype="multipart/form-data">

@@ -192,10 +192,13 @@ require_once "lang.php";
           <?php
           if ($result = mysqli_query($con, "SELECT * FROM category")) {
             while ($row = mysqli_fetch_assoc($result)) {
+              if ($row['categoryID'] == 11 || $row['categoryID'] == 12 || $row['categoryID'] == 13) {
+                continue;
+              }
               if ($lang == "en") {
-                echo "<div class='row'><a href='/" . $row['categoryName'] . "/?lang=en'><span>" . $row['categoryNameEN'] . "</span></a></div>";
+                echo "<div class='row'><a href='/category/?lang=en&cat=" . $row['categoryName'] . "/?lang=en'><span>" . $row['categoryNameEN'] . "</span></a></div>";
               } else {
-                echo "<div class='row'><a href='/" . $row['categoryName'] . "'><span>" . urldecode($row['categoryName']) . "</span></a></div>";
+                echo "<div class='row'><a href='/category/?cat=" . $row['categoryName'] . "'><span>" . urldecode($row['categoryName']) . "</span></a></div>";
               }
             }
             mysqli_free_result($result);

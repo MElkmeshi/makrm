@@ -24,12 +24,10 @@ if (isset($_POST['submit'])) {
     $_POST["categories"],
     FILTER_SANITIZE_NUMBER_INT
   );
-  $product_name = rawurlencode(filter_var($_POST["pName"], FILTER_SANITIZE_SPECIAL_CHARS));
-  $product_nameEN = filter_var($_POST["pNameEN"], FILTER_SANITIZE_SPECIAL_CHARS);
   $id = 0;
-  $query = "INSERT INTO product (id,productName,productNameEN,productImage,categoryID) VALUES (?,?,?,?,?)";
+  $query = "INSERT INTO product (id,productImage,categoryID) VALUES (?,?,?)";
   $stmt = mysqli_prepare($con, $query);
-  mysqli_stmt_bind_param($stmt, "isssi", $id, $product_name, $product_nameEN, $link, $categoryID);
+  mysqli_stmt_bind_param($stmt, "isi", $id, $link, $categoryID);
 
   if (mysqli_stmt_execute($stmt)) {
     header("Location: /admin/main.php");
@@ -66,14 +64,7 @@ if (isset($_POST['submit'])) {
   <div class="container mt-5">
 
     <form action="" method="POST" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Product Name</label>
-        <input class="form-control" name="pName" type="text" maxlength="40" required>
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Product Name English</label>
-        <input class="form-control" name="pNameEN" type="text" maxlength="40" required>
-      </div>
+
       <div class="mb-3">
         <label for="formFile" class="form-label">Product Image</label>
         <input name="file" class="form-control" size="36" type="file" accept="image/*">

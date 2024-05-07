@@ -291,7 +291,7 @@ require "lang.php";
       </div>
     </div>
     <div class="d-flex justify-content-center align-items-center h-100" style="margin-bottom: 150px">
-      <a href="categories<?php ($lang == "en") ? print "?lang=en" : "" ?>">
+      <a href="/category?cat=عربي<?php ($lang == "en") ? print "&lang=en" : "" ?>">
         <button style="
               color: rgba(0, 0, 0, 0.7);
               text-align: center;

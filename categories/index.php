@@ -30,11 +30,8 @@ include '../lang.php';
   }
 
   .cardimg {
-    /* width: 400px; */
-    /* height: 323px; */
-    /* flex-shrink: 0; */
+    width: 400px;
     object-fit: cover;
-    /* border-radius: 40px 40px 0 0; */
   }
 
   .card {
@@ -101,6 +98,10 @@ include '../lang.php';
     }
 
     .svg {
+      width: 300px;
+    }
+
+    .cardimg {
       width: 300px;
     }
   }
@@ -200,7 +201,7 @@ include '../lang.php';
 
   <section style="margin-bottom: -200px">
     <center>
-      <div class="album bg-body-tertiary" style="margin: 150px 0">
+      <div class="album" style="margin: 150px 0">
         <div class="new">
           <center style="margin-bottom: 70px;padding-top:30px">
             <span class='categoryName'> <?php ($lang == "en") ? print "New!" : print "جديد!" ?></span>
@@ -226,7 +227,7 @@ include '../lang.php';
             if ($category['categoryID'] == 11 || $category['categoryID'] == 12 || $category['categoryID'] == 13) {
               continue;
             }
-            echo "<div class='album bg-body-tertiary' style='margin-top: 150px;margin-bottom: 70px'><center style='margin-bottom: 30px'> <span class='categoryName'> ";
+            echo "<div class='album bg-body-tertiary' style='margin-top: 50px;padding-top: 50px;margin-bottom: 70px'><center style='margin-bottom: 30px'> <span class='categoryName'> ";
             if ($lang == "en") {
               echo $category['categoryNameEN'];
             } else {
@@ -234,12 +235,8 @@ include '../lang.php';
             }
             echo  "</span > </center>";
             echo "<div class='container' > <div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3'>";
-            // if ($products = mysqli_query($con, "SELECT * FROM product WHERE categoryID = " . $category['categoryID'] . " LIMIT 2")) {
-            //   while ($product = mysqli_fetch_assoc($products)) {
-            //   }
-            // }
-            echo "<div class='col mx-auto'> <img class='cardimg' style='border-radius:40px' src='" . $category['categoryImage1'] . "' width='406' alt='' /> </div> ";
-            echo "<div class='col mx-auto'> <img class='cardimg' style='border-radius:40px' src='" . $category['categoryImage2'] . "' width='406' alt='' /> </div> ";
+            echo "<div class='col mx-auto'> <img class='cardimg' style='border-radius:40px' src='" . $category['categoryImage1'] . "' alt='' /> </div> ";
+            echo "<div class='col mx-auto'> <img class='cardimg' style='border-radius:40px' src='" . $category['categoryImage2'] . "' alt='' /> </div> ";
             echo "  </div>";
             echo "<div> <a href='/category/?cat=" . $category['categoryName'];
             if ($lang == "en") {
@@ -251,7 +248,7 @@ include '../lang.php';
             } else {
               echo "عرض المزيد";
             }
-            echo " </div></div> </a> </div></div></div>";
+            echo " </div></div> </a></div></div></div>";
           }
 
           mysqli_free_result($categories);

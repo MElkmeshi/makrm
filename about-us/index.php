@@ -36,8 +36,14 @@ require "../lang.php";
       background: transparent !important;
     }
 
+    .dropdown-menu {
+      background: transparent !important;
+    }
+
+
     .link-secondary,
-    .nav-link {
+    .nav-link,
+    .dropdown-item {
       color: #d9d9d9 !important;
     }
 

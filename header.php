@@ -18,24 +18,35 @@ require_once "lang.php";
 
   .dropdown-menu {
     border: 0;
-    background-color: #F8F9FA;
+    background-image: linear-gradient(#CCC2BC, #CCC2BC);
+
   }
 
-  .navbar-brand {
-    position: relative;
-    <?php if ($lang == "en") {
-      echo "left: 40px;";
-    } else {
-      echo "right: 40px;";
-    }
-    ?>
+
+  .dropdown-item:hover {
+    background-color: #CCC2BC;
   }
+
+
 
   @media(max-width: 576px) {
+    ul {
+      padding: 0;
+    }
+
     .nav-link {
       font-size: 15px;
     }
 
+    .navbar-brand {
+      position: relative;
+      <?php if ($lang == "en") {
+        echo "left: 30px;";
+      } else {
+        echo "right: 30px;";
+      }
+      ?>
+    }
   }
 </style>
 <nav id="nav" class="navbar navbar-expand-lg bg-body-tertiary">

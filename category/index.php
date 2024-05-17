@@ -55,7 +55,7 @@ require_once "../cat.php";
       font-weight: 400;
       line-height: 120%;
       text-transform: capitalize;
-      width: 150px;
+      width: 200px;
     }
 
     .back-to-home-page {
@@ -159,7 +159,7 @@ require_once "../cat.php";
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" style="margin-bottom: 70px">
       <?php
       if ($products = mysqli_query($con, "SELECT * FROM product Where categoryID =" . $categoryID . "")) {
-        $getitbutton = ($lang == "en") ? "Get It" : "احصل عليها";
+        $getitbutton = ($lang == "en") ? "Get It" : "احصل عليها من اقرب فرع";
         while ($product = mysqli_fetch_assoc($products)) {
           echo "<div class='col'> <div class='card shadow-sm'> <img src='" . $product["productImage"] . "' alt='' /> <div class='card-body'> <div class='d-flex justify-content-center align-items-center h-100'> <a href='/our-brunches'> <div class='buybutton'>" . $getitbutton . "</div> </a> </div> </div> </div> </div>";
         }

@@ -18,9 +18,12 @@ $stmt = mysqli_prepare($con, $query);
 
 <div class="container">
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end" style="margin-top: 20px;">
         <a href="inserting.php">
             <button class="btn btn-dark">Add Product</button>
+        </a>
+        <a href="insertcategory.php" style="margin-left: 20px;">
+            <button class="btn btn-dark">Add Category</button>
         </a>
     </div>
     <table class="table">

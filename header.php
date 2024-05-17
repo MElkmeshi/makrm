@@ -123,9 +123,9 @@ require_once "lang.php";
         </li>
         <li class="nav-item">
           <a href="/our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>" class="nav-link px-5"> <?php if ($lang == "en") {
-                                                                                                            echo "Location";
+                                                                                                            echo "Addresses";
                                                                                                           } else {
-                                                                                                            echo "الموقع";
+                                                                                                            echo "عناوين";
                                                                                                           }
                                                                                                           ?></a>
         </li>

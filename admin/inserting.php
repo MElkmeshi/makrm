@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
   mysqli_stmt_bind_param($stmt, "isi", $id, $link, $categoryID);
 
   if (mysqli_stmt_execute($stmt)) {
-    header("Location: /admin/main.php");
+    header("Location: /admin/");
   } else {
     echo "Error occurred while inserting data.";
   }

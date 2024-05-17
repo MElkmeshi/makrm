@@ -67,7 +67,8 @@ require "lang.php";
       font-weight: 400;
       line-height: 120%;
       text-transform: capitalize;
-      width: 150px;
+      /* white-space: nowrap; */
+      width: 200px;
     }
   </style>
 </head>
@@ -123,7 +124,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="/our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -135,7 +136,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -147,7 +148,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -159,7 +160,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -171,7 +172,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -183,7 +184,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -195,7 +196,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -207,7 +208,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -257,7 +258,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -269,7 +270,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>
@@ -281,7 +282,7 @@ require "lang.php";
               <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <a href="our-brunches<?php ($lang == "en") ? print "?lang=en" : "" ?>">
-                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها" ?></div>
+                    <div class="buybutton"><?php ($lang == "en") ? print "Get it" : print "احصل عليها من اقرب فرع" ?></div>
                   </a>
                 </div>
               </div>

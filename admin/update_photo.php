@@ -12,7 +12,7 @@ if (isset($_POST['submit_photo'])) {
         mysqli_stmt_bind_param($stmt, "si", $link, $product_id);
 
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: /admin/main.php");
+            header("Location: /admin/");
         } else {
             echo "Error occurred while updating product photo.";
         }

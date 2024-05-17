@@ -34,6 +34,12 @@ include '../lang.php';
     object-fit: cover;
   }
 
+  .cardimg2 {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+  }
+
   .card {
     border-radius: 40px 40px 20px 20px;
     background: #fff;
@@ -108,22 +114,24 @@ include '../lang.php';
 
   .viewmorebutton {
     color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
     font-weight: 400;
-    line-height: 120%;
     text-transform: capitalize;
     border-radius: 20px;
     border: none;
     width: 170px;
     height: 50px;
-    flex-shrink: 0;
     margin-top: 30px;
-
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    background: rgba(212, 212, 212, 0.5);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
 
   .categoryName {
     color: #264d42;
@@ -209,15 +217,19 @@ include '../lang.php';
           <div class="container">
             <div class="row">
               <div class="col mx-auto" style="margin-bottom: 70px;">
-                <a href="/جديد">
-                  <button class="newbutton"><span class="newtext"><?php ($lang == "en") ? print "Group 2024" : print "مجموعة 2024" ?></span></button>
+                <a href="/جديد/<?php ($lang == "en") ? print "?lang=en" : "" ?>">
+                  <img class="cardimg2" style="border-radius:40px" src="/img/rectangle.png" alt=""> </a>
+              </div>
+              <div class="col mx-auto" style="margin-bottom: 70px;">
+                <a href="/جديد/<?php ($lang == "en") ? print "?lang=en" : "" ?>">
+                  <img class="cardimg2" style="border-radius:40px" src="/img/rectangle.png" alt=""> </a>
                 </a>
               </div>
               <div class="col mx-auto" style="margin-bottom: 70px;">
-                <a href="/جديد">
-                  <button class="newbutton"><span class="newtext"><?php ($lang == "en") ? print "New Makhrram" : print "جديد مخرم" ?></span></button> </a>
+                <a href="/جديد/<?php ($lang == "en") ? print "?lang=en" : "" ?>">
+                  <img class="cardimg2" style="border-radius:40px" src="/img/rectangle.png" alt=""> </a>
+                </a>
               </div>
-              <div class="col mx-auto" style="margin-bottom: 70px;"> <a href="/جديد"><button class="newbutton"><span class="newtext"><?php ($lang == "en") ? print "Recently Released" : print "عرض حديثا" ?></span></button> </a></div>
             </div>
           </div>
         </div>
@@ -242,13 +254,13 @@ include '../lang.php';
             if ($lang == "en") {
               echo "&lang=en";
             }
-            echo  "'> <div class='d-flex justify-content-start'> <div class='viewmorebutton'>";
+            echo  "'><div class='viewmorebutton'>";
             if ($lang == "en") {
               echo "View More";
             } else {
               echo "عرض المزيد";
             }
-            echo " </div></div> </a></div></div></div>";
+            echo " </div> </a></div></div></div>";
           }
 
           mysqli_free_result($categories);
